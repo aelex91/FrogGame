@@ -26,7 +26,6 @@ namespace Assets.Scripts
 
 		public event Action OnCompleteLevel;
 
-
 		private void Start()
 		{
 			startPosition = transform.position;
@@ -52,7 +51,7 @@ namespace Assets.Scripts
 			spawnCloudTime = 0;
 		}
 
-		public bool IsInTheAir()
+		public bool AboveGround()
 		{
 			return IsGrounded() == false;
 		}
@@ -110,5 +109,27 @@ namespace Assets.Scripts
 			//todo add to list?
 			
 		}
+		void OnCollisionEnter(Collision collision)
+		{
+			if (collision.gameObject.CompareTag("Leaf"))
+			{
+				Debug.Log("collision parent");
+				// Set the object as a child of the plane
+				transform.SetParent(collision.transform);
+			}
+		}
+
+		void OnCollisionExit(Collision collision)
+		{
+			if (collision.gameObject.CompareTag("Leaf"))
+			{
+				Debug.Log("OnCollisionExit parent");
+
+				// Remove the parent relationship when the object leaves the plane
+				transform.SetParent(null);
+			}
+		}
+
+
 	}
 }

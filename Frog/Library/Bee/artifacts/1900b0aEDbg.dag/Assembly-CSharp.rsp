@@ -362,7 +362,10 @@
 "Assets/AQUAS-Lite/Scripts/AQUAS_Lite_Reflection.cs"
 "Assets/Scripts/Abillities/PlayerAbillityManager.cs"
 "Assets/Scripts/Enums/Abillities.cs"
+"Assets/Scripts/FloatAround.cs"
+"Assets/Scripts/Floater.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/LevelManager.cs"
 "Assets/Scripts/OnTouchHandlers/OnAbillityTouch.cs"
 "Assets/Scripts/OnTouchHandlers/OnBucketTouch.cs"
 "Assets/Scripts/OnTouchHandlers/OnLeafTouch.cs"
@@ -372,8 +375,11 @@
 "Assets/Scripts/Player/CameraShake.cs"
 "Assets/Scripts/Player/PlayerController.cs"
 "Assets/Scripts/Player/PlayerJumpController.cs"
+"Assets/Scripts/ScoreManager.cs"
 "Assets/Scripts/UI/PowerStatusUI.cs"
 "Assets/Scripts/UI/SpellUI.cs"
+"Assets/Scripts/WaterSplash.cs"
+"Assets/Scripts/WaveManager.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs"
@@ -408,6 +414,7 @@
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs"
+"Assets/WaterManager.cs"
 -langversion:9.0
 
 /deterministic

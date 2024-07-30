@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using UnityEngine;
 
 public class OnBucketTouch : TouchableObject
@@ -15,6 +16,7 @@ public class OnBucketTouch : TouchableObject
 	protected override void OnCollision(Collision collision)
 	{
 		PlayerController.SetOnCompleteLevel();
+		
 		base.OnCollision(collision);
 	}
 

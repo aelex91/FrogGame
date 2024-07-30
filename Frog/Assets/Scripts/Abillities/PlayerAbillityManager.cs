@@ -16,6 +16,8 @@ public class PlayerAbillityManager : MonoBehaviour
 
 	public bool CanUseAbillitties = true;
 
+	private bool isFalling = false;
+
 	private CameraShake camera;
 
 	private float abillityPushForce = 25;
@@ -26,6 +28,8 @@ public class PlayerAbillityManager : MonoBehaviour
 
 	private PlayerController _playerController;
 
+	public float moonGravityScale = 1.0f / 6.0f;
+
 	public List<AbillityType> AbillityTypes = new List<AbillityType>();
 
 	private void Start()
@@ -35,6 +39,16 @@ public class PlayerAbillityManager : MonoBehaviour
 		rigidbody = GetComponent<Rigidbody>();
 
 		_playerController = GetComponent<PlayerController>();
+	}
+
+	private void Update()
+	{
+
+		if (isFalling)
+		{
+			Vector3 moonGravity = Physics.gravity * moonGravityScale;
+			rigidbody.AddForce(moonGravity - Physics.gravity, ForceMode.Acceleration);
+		}
 	}
 
 	public void OnEnableAbillities_PlayerAbillityManager()
@@ -92,23 +106,24 @@ public class PlayerAbillityManager : MonoBehaviour
 		var center = new Vector3(pPos.x, pPos.y, pPos.z + 2);
 
 		var balloon = Instantiate(GameManager.Instance.Balloon, center + Vector3.up * 6f, Quaternion.identity, transform);
-		//rigidbody.velocity = Vector3.zero;
-		rigidbody.useGravity = false;
 
-		float levitationTime = 5f;
-		float elapsedTime = 0f;
+		var levitationTime = 2.5f;
+
+		var elapsedTime = 0f;
+
+		isFalling = true;
 
 		while (elapsedTime < levitationTime)
 		{
-			rigidbody.velocity = new Vector3(rigidbody.velocity.x, Mathf.Sin(elapsedTime * Mathf.PI / levitationTime) * slowDownRate, rigidbody.velocity.z);
+			//rigidbody.velocity = new Vector3(rigidbody.velocity.x, Mathf.Sin(elapsedTime * Mathf.PI / levitationTime) * slowDownRate, rigidbody.velocity.z);
 			elapsedTime += Time.deltaTime;
 			yield return null;
 		}
 
 		Destroy(balloon);
 
-		rigidbody.useGravity = true;
-		//rigidbody.velocity = Vector3.zero;
+		isFalling = false;
+
 	}
 
 

@@ -13,6 +13,8 @@ namespace Assets.Scripts
 		[SerializeField]
 		public GameObject LeafParticle;
 
+		private LevelManager currentLevelManager;
+
 		public static GameManager Instance;
 
 		private void Awake()
@@ -26,5 +28,10 @@ namespace Assets.Scripts
 			if (Camera.main != null)
 				Camera.main.gameObject.SetActive(false);
 		}
+
+		public void SetCurrentLevelManager(LevelManager levelManager)
+		{
+			currentLevelManager = levelManager;
+		}	
 	}
 }

@@ -124,7 +124,7 @@ Material:
     - _UnderwaterMode: 0
     - _UnderwaterTranspDist: 13.56
     - _UnderwaterTranspFalloff: 0.78
-    - _WaveSpeed: 0.5
+    - _WaveSpeed: 1.5
     - _ZWrite: 1
     - __dirty: 1
     m_Colors:

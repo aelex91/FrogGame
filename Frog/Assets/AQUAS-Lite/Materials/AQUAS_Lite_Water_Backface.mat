@@ -106,14 +106,14 @@ Material:
     - _MediumTilingDistance: 100
     - _Metallic: 0
     - _Mode: 0
-    - _NormalStrength: 0.75
-    - _NormalTiling: 1
+    - _NormalStrength: 0.73
+    - _NormalTiling: 0.74
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _ProbeReflectionIntensity: 0.578
     - _RealtimeReflectionIntensity: 1
     - _ReflectionIntensity: 0.385
-    - _Refraction: 0.4
+    - _Refraction: 0.357
     - _RefractionDistance: 10
     - _RefractionFalloff: 1
     - _ShoreFade: 0.56
@@ -125,7 +125,7 @@ Material:
     - _UnderwaterMode: 0
     - _UnderwaterTranspDist: 13.56
     - _UnderwaterTranspFalloff: 0.78
-    - _WaveSpeed: 0.05
+    - _WaveSpeed: 1.5
     - _ZWrite: 1
     - __dirty: 1
     m_Colors:

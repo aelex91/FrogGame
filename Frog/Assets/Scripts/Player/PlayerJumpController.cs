@@ -38,8 +38,6 @@ public class PlayerJumpController : MonoBehaviour
 
 	public float lineIncreaseSpeed = 5f;
 
-	//public float ChargeSpeed = 0f;
-
 	void Start()
 	{
 		playerAbillityManager = GetComponent<PlayerAbillityManager>();
@@ -79,22 +77,19 @@ public class PlayerJumpController : MonoBehaviour
 			return;
 		}
 
-		if (Input.GetKey(KeyCode.Space) && StandingStill())
+		var onGround = playerController.AboveGround() == false;
+
+		if (Input.GetKey(KeyCode.Space) && onGround)
 		{
 			PrepareJump();
 		}
 
-		if (Input.GetKeyUp(KeyCode.Space) && StandingStill())
+		if (Input.GetKeyUp(KeyCode.Space) && onGround)
 		{
 			Jump();
 		}
 
 		UpdateAnimation();
-
-		if (Input.GetKey(KeyCode.G) && playerAbillityManager.CanUseAbillitties)
-		{
-			playerAbillityManager.UseAbillity(AbillityType.Balloon);
-		}
 
 		HandleInAir();
 
@@ -133,7 +128,6 @@ public class PlayerJumpController : MonoBehaviour
 		var velocity = shotDirection.normalized * (currentCharge / 2);
 
 		rb.AddForce(velocity, ForceMode.Impulse);
-
 		
 	}
 
@@ -167,7 +161,7 @@ public class PlayerJumpController : MonoBehaviour
 
 	private void HandleInAir()
 	{
-		if (playerController.IsInTheAir() == false)
+		if (playerController.AboveGround() == false)
 			return;
 
 		rb.constraints = RigidbodyConstraints.FreezeRotation;
